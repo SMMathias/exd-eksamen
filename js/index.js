@@ -71,7 +71,6 @@ const fishCards = [
     funFact2: "Holder havbunden ren ved at filtrere sandet.",
     image: "gobi.svg",
     video: "sandspiser-animation-novoice.mp4",
-    gif: "gobifisk/gobifisk-gif-done.gif",
   },
   {
     fishName: "Kuglefisk",
@@ -128,9 +127,14 @@ backToMenu.addEventListener("click", function () {
   select.classList.add("hidden");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   startBtn.classList.remove("hidden");
+
+  document
+    .querySelectorAll(".characterOption")
+    .forEach((opt) => opt.classList.remove("selected"));
+  selectedFishIndex = null;
 });
 
-let selectedFishIndex = 0;
+let selectedFishIndex = null;
 
 const fishContainer = document.getElementById("infoScreen");
 
