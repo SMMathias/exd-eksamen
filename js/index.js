@@ -268,7 +268,7 @@ function draw() {
   });
 
   // opdater score
-  ctx.fillStyle = "black";
+  ctx.fillStyle = "white";
   ctx.font = "20px Mali";
   ctx.fillText(`${points}`, 20, 30);
 }
@@ -323,7 +323,6 @@ function gameOver() {
     canvas.height / 2 + 40
   );
   ctx.restore();
-  cancelAnimationFrame(animationFrameId); // stop den næste frame helt
 }
 
 // looper bare spillet igennem
