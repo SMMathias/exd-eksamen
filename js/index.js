@@ -12,7 +12,6 @@ const fishCards = [
       "Den ægte kejserfisk har en 'maske' over øjnene for at forvirre rovdyr.",
     image: "kejserfisk.svg",
     video: "emperor-animation-novoice.mp4",
-    gif: "gobifisk/gobifisk-gif-done.gif",
   },
   {
     fishName: "Klovnefisk",
@@ -22,7 +21,7 @@ const fishCards = [
     funFact2: "Klækker ud som små hanner og hunnerne er større end hannerne.",
     image: "klovnefisk.svg",
     video: "klovnefisk-foley-bubble-true.mp4",
-    gif: "gobifisk/gobifisk-gif-done.gif",
+    playableImg: "klovneFinal.svg",
   },
   {
     fishName: "Kirurgfisk",
@@ -33,7 +32,6 @@ const fishCards = [
     funFact2: "Er en farverig revfisk, der svømmer omkring koralrev.",
     image: "kirurgfisk.svg",
     video: "kirurg-animation-novoice.mp4",
-    gif: "gobifisk/gobifisk-gif-done.gif",
   },
   {
     fishName: "Pudsefisk",
@@ -45,7 +43,6 @@ const fishCards = [
       "Alle pudsefisk er født som hunner og kan skifte køn, når hannen forsvinder.",
     image: "pudsefisk.svg",
     video: "cleaner-animation-novoice.mp4",
-    gif: "gobifisk/gobifisk-gif-done.gif",
   },
   {
     fishName: "Blå-chromis",
@@ -56,7 +53,6 @@ const fishCards = [
     funFact2: "Lever hovedsageligt af små planktonorganismer.",
     image: "chromis.svg",
     video: "chromi-animation-novoice.mp4",
-    gif: "gobifisk/gobifisk-gif-done.gif",
   },
   {
     fishName: "Rævefjæs",
@@ -66,7 +62,6 @@ const fishCards = [
     funFact2: "Har svagt giftige pigstråler i ryggen som forsvar.",
     image: "raevefjaes.svg",
     video: "foxface-animatio-novoice.mp4",
-    gif: "rabbitfish/rabbitface-gif.gif",
   },
   {
     fishName: "Sandspiser-gobi",
@@ -86,7 +81,6 @@ const fishCards = [
     funFact2: "Har fire tænder og knuser skaller fra krebsdyr og bløddyr.",
     image: "kuglefisk.svg",
     video: "kugle-animation-novoice.mp4",
-    gif: "kuglefisk/kuglefisk-gif-done.gif",
   },
 ];
 
@@ -231,8 +225,8 @@ let gameRunning = false;
 let stars = [];
 let fishX = canvas.width / 2 - 25; // i midten af canvaset
 let fishY = canvas.height - 300; // lidt over bunden sådan ja kan altid justeresr
-let fishWidth = 200;
-let fishHeight = 200;
+let fishWidth = 25;
+let fishHeight = 25;
 let fishSpeed = 6;
 let starInterval;
 let lastStarTime = 0;
@@ -387,8 +381,14 @@ function startGame() {
 
   // Start nyt spil
   gameRunning = true;
-  const chosenFish = characters[selectedFishIndex];
-  fishImg.src = `gif-copy/${chosenFish.gif}`;
+  const chosenFish = fishCards[selectedFishIndex];
+  let src;
+  if (chosenFish.playableImg) {
+    src = `img/playable/${chosenFish.playableImg}`;
+  } else {
+    src = `img/${chosenFish.image}`;
+  }
+  fishImg.src = src;
 
   fishImg.onload = () => {
     lastStarTime = 0;
