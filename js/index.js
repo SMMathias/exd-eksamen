@@ -313,7 +313,7 @@ function gameOver() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "white";
+  ctx.fillStyle = "black";
   ctx.font = "20px Mali";
   ctx.fillText("Av av, du har tabt", canvas.width / 2 - 110, canvas.height / 2);
   ctx.font = "10px Mali";
@@ -336,6 +336,9 @@ function gameLoop(timestamp) {
   }
 
   updateStars();
+
+  if (isGameOver) return;
+
   checkCollision();
   draw();
 
