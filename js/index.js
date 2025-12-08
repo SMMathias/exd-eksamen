@@ -318,7 +318,7 @@ function gameOver() {
   ctx.fillText("Av av, du har tabt", canvas.width / 2 - 110, canvas.height / 2);
   ctx.font = "10px Mali";
   ctx.fillText(
-    "Tryk 'Tilbage til menu' for at starte igen",
+    "Tryk 'Afslut spil' for at starte igen",
     canvas.width / 2 - 120,
     canvas.height / 2 + 40
   );
